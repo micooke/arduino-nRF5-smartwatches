@@ -1,0 +1,135 @@
+# Copyright (c) 2014-2015 Arduino LLC.  All right reserved.
+#
+# This library is free software; you can redistribute it and/or
+# modify it under the terms of the GNU Lesser General Public
+# License as published by the Free Software Foundation; either
+# version 2.1 of the License, or (at your option) any later version.
+#
+# This library is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+# See the GNU Lesser General Public License for more details.
+#
+# You should have received a copy of the GNU Lesser General Public
+# License along with this library; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+menu.chip=Chip
+menu.softdevice=Softdevice
+menu.version=Version
+menu.lfclk=Low Frequency Clock
+menu.board_variant=Board Variant
+
+# -----------------------------------------------------------------------------
+IDO003.name=IDO003
+
+IDO003.upload.tool=sandeepmistry:blackmagicprobe
+IDO003.upload.target=nrf51
+IDO003.upload.maximum_size=262144
+
+IDO003.bootloader.tool=sandeepmistry:blackmagicprobe
+
+IDO003.build.mcu=cortex-m0
+IDO003.build.f_cpu=16000000
+IDO003.build.board=IDO003
+IDO003.build.core=sandeepmistry:nRF5
+IDO003.build.variant=IDO003
+IDO003.build.variant_system_lib=
+IDO003.build.extra_flags=-DNRF51 -DIDO003 -I{build.path}
+IDO003.build.float_flags=
+IDO003.build.ldscript=nrf51_{build.chip}.ld
+
+IDO003.menu.chip.xxac=16 kB RAM, 256 kB flash (xxaa)
+IDO003.menu.chip.xxac.build.chip=xxaa
+
+IDO003.menu.softdevice.s130=S130
+IDO003.menu.softdevice.s130.softdevice=s130
+IDO003.menu.softdevice.s130.softdeviceversion=2.0.1
+IDO003.menu.softdevice.s130.upload.maximum_size=151552
+IDO003.menu.softdevice.s130.build.extra_flags=-DNRF51 -DS130 -DNRF51_S130
+IDO003.menu.softdevice.s130.build.ldscript=armgcc_s130_nrf51822_{build.chip}.ld
+
+IDO003.menu.softdevice.none=None
+IDO003.menu.softdevice.none.softdevice=none
+IDO003.menu.softdevice.none.softdeviceversion=
+
+IDO003.menu.lfclk.lfrc=RC Oscillator
+IDO003.menu.lfclk.lfrc.build.lfclk_flags=-DUSE_LFRC
+
+IDO003.menu.lfclk.lfxo=Crystal Oscillator
+IDO003.menu.lfclk.lfxo.build.lfclk_flags=-DUSE_LFXO
+
+IDO003.menu.lfclk.lfsynt=Synthesized
+IDO003.menu.lfclk.lfsynt.build.lfclk_flags=-DUSE_LFSYNT
+
+# -----------------------------------------------------------------------------
+ID100HR.name=ID100HR
+
+ID100HR.upload.tool=sandeepmistry:blackmagicprobe
+ID100HR.upload.target=nrf51
+ID100HR.upload.maximum_size=262144
+
+ID100HR.bootloader.tool=sandeepmistry:blackmagicprobe
+
+ID100HR.build.mcu=cortex-m0
+ID100HR.build.f_cpu=16000000
+ID100HR.build.board=ID100HR
+ID100HR.build.core=sandeepmistry:nRF5
+ID100HR.build.variant=ID100HR
+ID100HR.build.variant_system_lib=
+ID100HR.build.extra_flags=-DNRF51 -DID100HR -I{build.path}
+ID100HR.build.float_flags=
+ID100HR.build.ldscript=nrf51_{build.chip}.ld
+
+ID100HR.menu.chip.xxac=32 kB RAM, 256 kB flash (xxac)
+ID100HR.menu.chip.xxac.build.chip=xxac
+
+ID100HR.menu.softdevice.s130=S130
+ID100HR.menu.softdevice.s130.softdevice=s130
+ID100HR.menu.softdevice.s130.softdeviceversion=2.0.1
+ID100HR.menu.softdevice.s130.upload.maximum_size=151552
+ID100HR.menu.softdevice.s130.build.extra_flags=-DNRF51 -DS130 -DNRF51_S130
+ID100HR.menu.softdevice.s130.build.ldscript=armgcc_s130_nrf51822_{build.chip}.ld
+
+ID100HR.menu.softdevice.none=None
+ID100HR.menu.softdevice.none.softdevice=none
+ID100HR.menu.softdevice.none.softdeviceversion=
+
+ID100HR.menu.lfclk.lfxo=Crystal Oscillator
+ID100HR.menu.lfclk.lfxo.build.lfclk_flags=-DUSE_LFXO
+
+# -----------------------------------------------------------------------------
+ID107HR.name=ID107HR
+
+ID107HR.upload.tool=sandeepmistry:blackmagicprobe
+ID107HR.upload.target=nrf51
+ID107HR.upload.maximum_size=262144
+
+ID107HR.bootloader.tool=sandeepmistry:blackmagicprobe
+
+ID107HR.build.mcu=cortex-m0
+ID107HR.build.f_cpu=16000000
+ID107HR.build.board=ID107HR
+ID107HR.build.core=sandeepmistry:nRF5
+ID107HR.build.variant=ID107HR
+ID107HR.build.variant_system_lib=
+ID107HR.build.extra_flags=-DNRF51 -DID107HR -I{build.path}
+ID107HR.build.float_flags=
+ID107HR.build.ldscript=nrf51_{build.chip}.ld
+
+ID107HR.menu.chip.xxac=32 kB RAM, 256 kB flash (xxac)
+ID107HR.menu.chip.xxac.build.chip=xxac
+
+ID107HR.menu.softdevice.s130=S130
+ID107HR.menu.softdevice.s130.softdevice=s130
+ID107HR.menu.softdevice.s130.softdeviceversion=2.0.1
+ID107HR.menu.softdevice.s130.upload.maximum_size=151552
+ID107HR.menu.softdevice.s130.build.extra_flags=-DNRF51 -DS130 -DNRF51_S130
+ID107HR.menu.softdevice.s130.build.ldscript=armgcc_s130_nrf51822_{build.chip}.ld
+
+ID107HR.menu.softdevice.none=None
+ID107HR.menu.softdevice.none.softdevice=none
+ID107HR.menu.softdevice.none.softdeviceversion=
+
+ID107HR.menu.lfclk.lfxo=Crystal Oscillator
+ID107HR.menu.lfclk.lfxo.build.lfclk_flags=-DUSE_LFXO
