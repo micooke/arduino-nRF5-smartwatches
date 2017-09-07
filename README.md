@@ -1,6 +1,6 @@
 ## Nordic Semiconductor nRF5 Smartwatches
 
-This work piggy backs on previous work by many people, mainly : @goran-mahovlic, @rogerclarkmelbourne, @curtpw, Gordon (espruino)
+This work piggy backs on previous work by many people, mainly : [@goran-mahovlic](https://github.com/goran-mohavlic), [@rogerclarkmelbourne](https://github.com/rogerclarkmelbourne/), [@curtpw](https://github.com/curtpw/), [@Gordon](http://forum.espruino.com/profiles/224/)
 
 Most of these watches are made by [idoosmart](http://www.idoosmart.com) and can be purchased from their [aliexpress](https://ido-smart.en.alibaba.com/productgrouplist-0/Ungrouped.html?) company site.
 
@@ -76,10 +76,10 @@ Progamming is via a SWD programmer (J-Link, ST-Link etc.) using sandeep's core.
 * \*  : unknown (easily found - perform an analog read on each pin), but AIN{0:7} = p{28,27,1,2,3,4,9,10} so it must be one of p9,p10,p27,p28
 
 ### References
-* nRF5 core is written and maintained by @sandeepmistry
-* Support for these smartwatches originate from @rogerclarkmelbourne's [arduino-nRF5-customised](https://github.com/rogerclarkmelbourne/arduino-nRF5-customised) repo
-* [ID100HR picture](http://www.rogerclark.net/wp-content/uploads/2016/09/ID100HR_back_smart_watch-1024x576.jpg) is from @rogerclarkmelbourne, embedded on his website [article](http://www.rogerclark.net/arduino-on-the-id100hr-fitness-tracker/)
-* (Modified) [IDO003 picture](https://espruino.microco.sm/api/v1/files/ba591802419c40145d825db2924360eb162cc026.JPG) is from espruino user [Gordon](http://forum.espruino.com/profiles/224/), embedded in this [conversation](http://forum.espruino.com/conversations/280747/)
+* nRF5 core is written and maintained by Sandeep Mistry
+* Support for these smartwatches originate from Roger's [arduino-nRF5-customised](https://github.com/rogerclarkmelbourne/arduino-nRF5-customised) repo
+* [ID100HR picture](http://www.rogerclark.net/wp-content/uploads/2016/09/ID100HR_back_smart_watch-1024x576.jpg) is from Roger, embedded on his website [article](http://www.rogerclark.net/arduino-on-the-id100hr-fitness-tracker/)
+* (Modified) [IDO003 picture](https://espruino.microco.sm/api/v1/files/ba591802419c40145d825db2924360eb162cc026.JPG) is from Gordon, embedded in this [conversation](http://forum.espruino.com/conversations/280747/)
 * ID107HR picture is my own
-* [ID107HR Plus picture](http://www.rogerclark.net/wp-content/uploads/2017/06/id107plus-7-770x1024.jpg) is from @curtpw, embedded on @rogerclarkmelbourne's website [article](http://www.rogerclark.net/new-nrf52832-based-smart-watch-available/)
-* (Modified) [ID107HR Plus pads](http://www.rogerclark.net/wp-content/uploads/2017/06/id107plus-3.jpg) is from @curtpw, embedded on @rogerclarkmelbourne's website [article](http://www.rogerclark.net/new-nrf52832-based-smart-watch-available/)
+* [ID107HR Plus picture](http://www.rogerclark.net/wp-content/uploads/2017/06/id107plus-7-770x1024.jpg) is from Curt, embedded on Roger's website [article](http://www.rogerclark.net/new-nrf52832-based-smart-watch-available/)
+* (Modified) [ID107HR Plus pads](http://www.rogerclark.net/wp-content/uploads/2017/06/id107plus-3.jpg) is from Curt, embedded on Roger's website [article](http://www.rogerclark.net/new-nrf52832-based-smart-watch-available/)
