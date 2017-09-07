@@ -133,3 +133,39 @@ ID107HR.menu.softdevice.none.softdeviceversion=
 
 ID107HR.menu.lfclk.lfxo=Crystal Oscillator
 ID107HR.menu.lfclk.lfxo.build.lfclk_flags=-DUSE_LFXO
+
+# -----------------------------------------------------------------------------
+ID107HRPlus.name=ID107HR Plus
+
+ID107HRPlus.upload.tool=sandeepmistry:blackmagicprobe
+ID107HRPlus.upload.target=nrf51
+ID107HRPlus.upload.maximum_size=262144
+
+ID107HRPlus.bootloader.tool=sandeepmistry:blackmagicprobe
+
+ID107HRPlus.build.mcu=cortex-m4
+ID107HRPlus.build.f_cpu=16000000
+ID107HRPlus.build.board=ID107HRPlus
+ID107HRPlus.build.core=sandeepmistry:nRF5
+ID107HRPlus.build.variant=ID107HRPlus
+ID107HRPlus.build.variant_system_lib=
+ID107HRPlus.build.extra_flags=-DNRF52 -DID107HRPlus -I{build.path}
+ID107HRPlus.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
+ID107HRPlus.build.ldscript=nrf52_{build.chip}.ld
+
+ID107HRPlus.menu.chip.xxaa=64 kB RAM, 512 kB flash (xxaa)
+ID107HRPlus.menu.chip.xxaa.build.chip=xxaa
+
+ID107HRPlus.menu.softdevice.s132=S132
+ID107HRPlus.menu.softdevice.s132.softdevice=s132
+ID107HRPlus.menu.softdevice.s132.softdeviceversion=2.0.1
+ID107HRPlus.menu.softdevice.s132.upload.maximum_size=409600
+ID107HRPlus.menu.softdevice.s132.build.extra_flags=-DNRF52 -DS132 -DNRF52_S132
+ID107HRPlus.menu.softdevice.s132.build.ldscript=armgcc_s132_nrf52832_{build.chip}.ld
+
+ID107HRPlus.menu.softdevice.none=None
+ID107HRPlus.menu.softdevice.none.softdevice=none
+ID107HRPlus.menu.softdevice.none.softdeviceversion=
+
+ID107HRPlus.menu.lfclk.lfxo=Crystal Oscillator
+ID107HRPlus.menu.lfclk.lfxo.build.lfclk_flags=-DUSE_LFXO
