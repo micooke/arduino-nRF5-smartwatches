@@ -9,10 +9,10 @@ Be careful when purchasing from a third party reseller as there have been instan
 Note : I have no affiliation with idoosmart / Shenzhen DO Intelligent Technology Co,. Ltd, nor any aliexpress or smartwatch retailer.
 
 Included in this package:
-1. [IDO003](images/IDO003_back.jpg)
-2. [ID100HR](images/ID100HR_back.jpg)
-3. [ID107HR](images/ID107HR_back.jpg)
-4. [ID107HR Plus](images/ID107HRPlus_disected.jpg) (alpha) - dont expect this to work
+1. [IDO003](https://github.com/micooke/micooke.github.io/blob/master/arduino-nRF5-smartwatches/images/IDO003_back.jpg)
+2. [ID100HR](https://github.com/micooke/micooke.github.io/blob/master/arduino-nRF5-smartwatches/images/ID100HR_back.jpg)
+3. [ID107HR](https://github.com/micooke/micooke.github.io/blob/master/arduino-nRF5-smartwatches/images/ID107HR_back.jpg)
+4. [ID107HR Plus](https://github.com/micooke/micooke.github.io/blob/master/arduino-nRF5-smartwatches/images/ID107HRPlus_disected.jpg) (alpha) - dont expect this to work
 
 I am happy to accept pull requests for any nRF51 or nRF52 based smartwatch, but will be unable to test anything except for the ID107HR (v2.4) unless you are feeling generous and want to send me one :wink:.
 
@@ -59,7 +59,8 @@ Progamming is via a SWD programmer (J-Link, ST-Link etc.) using sandeep's core.
 |                         |        | SCK          | ---    | ---     | ---     | 30
 |                         |        | CE           | ---    | ---     | ---     | 28
 | side tactile button     | ---    | BUTTON1      | 4      | 4       | 4       | ---
-| capacitive touch button | IQS263 | BUTTON2      | 4      | 7       | 7       | ?
+| capacitive touch button | RH6015C| BUTTON2      | 4      | 7       | 7       | ?
+| capacitive touch screen | IQS263 | ---          | ---    | ---     | ---     | ?
 | vibrate motor           | ---    | VIBRATE -or- | 7      | 8       | 6       | ?
 |                         |        | LED_BUILTIN  |        |         |         |    
 | serial UART             | ---    | Tx           | 18     | 18      | 18      | 23
