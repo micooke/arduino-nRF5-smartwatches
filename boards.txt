@@ -23,11 +23,11 @@ menu.board_variant=Board Variant
 # -----------------------------------------------------------------------------
 IDO003.name=IDO003
 
-IDO003.upload.tool=sandeepmistry:blackmagicprobe
+IDO003.upload.tool=sandeepmistry:openocd
 IDO003.upload.target=nrf51
 IDO003.upload.maximum_size=262144
 
-IDO003.bootloader.tool=sandeepmistry:blackmagicprobe
+IDO003.bootloader.tool=sandeepmistry:openocd
 
 IDO003.build.mcu=cortex-m0
 IDO003.build.f_cpu=16000000
@@ -65,11 +65,11 @@ IDO003.menu.lfclk.lfsynt.build.lfclk_flags=-DUSE_LFSYNT
 # -----------------------------------------------------------------------------
 ID100HR.name=ID100HR
 
-ID100HR.upload.tool=sandeepmistry:blackmagicprobe
+ID100HR.upload.tool=sandeepmistry:openocd
 ID100HR.upload.target=nrf51
 ID100HR.upload.maximum_size=262144
 
-ID100HR.bootloader.tool=sandeepmistry:blackmagicprobe
+ID100HR.bootloader.tool=sandeepmistry:openocd
 
 ID100HR.build.mcu=cortex-m0
 ID100HR.build.f_cpu=16000000
@@ -101,11 +101,11 @@ ID100HR.menu.lfclk.lfxo.build.lfclk_flags=-DUSE_LFXO
 # -----------------------------------------------------------------------------
 ID107HR.name=ID107HR
 
-ID107HR.upload.tool=sandeepmistry:blackmagicprobe
+ID107HR.upload.tool=sandeepmistry:openocd
 ID107HR.upload.target=nrf51
 ID107HR.upload.maximum_size=262144
 
-ID107HR.bootloader.tool=sandeepmistry:blackmagicprobe
+ID107HR.bootloader.tool=sandeepmistry:openocd
 
 ID107HR.build.mcu=cortex-m0
 ID107HR.build.f_cpu=16000000
@@ -137,11 +137,11 @@ ID107HR.menu.lfclk.lfxo.build.lfclk_flags=-DUSE_LFXO
 # -----------------------------------------------------------------------------
 ID107HRPlus.name=ID107HR Plus
 
-ID107HRPlus.upload.tool=sandeepmistry:blackmagicprobe
+ID107HRPlus.upload.tool=sandeepmistry:openocd
 ID107HRPlus.upload.target=nrf51
 ID107HRPlus.upload.maximum_size=262144
 
-ID107HRPlus.bootloader.tool=sandeepmistry:blackmagicprobe
+ID107HRPlus.bootloader.tool=sandeepmistry:openocd
 
 ID107HRPlus.build.mcu=cortex-m4
 ID107HRPlus.build.f_cpu=16000000
