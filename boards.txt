@@ -134,6 +134,7 @@ ID107HR.menu.board_variant.heartrate_hwi2c.build.lfclk_flags=-DUSE_LFXO -DHEARTR
 # -----------------------------------------------------------------------------
 ID107HRPlus.name=ID107HR Plus
 
+
 ID107HRPlus.upload.tool=sandeepmistry:openocd
 ID107HRPlus.upload.target=nrf52
 ID107HRPlus.upload.maximum_size=524288
@@ -149,8 +150,7 @@ ID107HRPlus.build.variant_system_lib=
 ID107HRPlus.build.extra_flags=-DNRF52 -DID107HRPlus -I{build.path}
 ID107HRPlus.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 ID107HRPlus.build.ldscript=nrf52_{build.chip}.ld
-ID107HRPlus.build.chip=xxaa
-
+ID107HRPlus.menu.chip.xxaa=64 kB RAM, 512 kB flash (xxaa)
 ID107HRPlus.menu.softdevice.s132=S132
 ID107HRPlus.menu.softdevice.s132.softdevice=s132
 ID107HRPlus.menu.softdevice.s132.softdeviceversion=2.0.1
