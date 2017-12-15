@@ -1,6 +1,8 @@
 /*
   Copyright (c) 2014-2015 Arduino LLC.  All right reserved.
   Copyright (c) 2016 Sandeep Mistry All right reserved.
+  Copyright (c) 2016 Frank Holtz. All right reserved.
+
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Lesser General Public
   License as published by the Free Software Foundation; either
@@ -14,8 +16,8 @@
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#ifndef _VARIANT_ID107HR_
-#define _VARIANT_ID107HR_
+#ifndef _VARIANT_STCT_NRF52_minidev_
+#define _VARIANT_STCT_NRF52_minidev_
 
 /** Master clock frequency */
 #ifdef NRF52
@@ -36,27 +38,31 @@ extern "C"
 #endif // __cplusplus
 
 // Number of pins defined in PinDescription array
-#define PINS_COUNT           (31u)
-#define NUM_DIGITAL_PINS     (31u)
+#define PINS_COUNT           (32u)
+#define NUM_DIGITAL_PINS     (20u)
 #define NUM_ANALOG_INPUTS    (6u)
 #define NUM_ANALOG_OUTPUTS   (0u)
 
-// Buttons
-#define PIN_BUTTON1             (4)
-#define PIN_BUTTON2             (7)
+// LEDs
+#define PIN_LED1                (5u)
+#define PIN_LED2                (6u)
+#define LED_BUILTIN             PIN_LED1
 
-#define PIN_VIBRATE				(6)
-#define LED_BUILTIN				PIN_VIBRATE
+// Buttons
+// KEY
+#define PIN_BUTTON1             (9u)
+// Reset -> read nordic documentation for disabling reset function
+#define PIN_BUTTON2             (31u)
 
 /*
  * Analog pins
  */
-#define PIN_A0               (2)
-#define PIN_A1               (3)
-#define PIN_A2               (4)
-#define PIN_A3               (5)
-#define PIN_A4               (6)
-#define PIN_A5               (7)
+#define PIN_A0               (25u)
+#define PIN_A1               (26u)
+#define PIN_A2               (27u)
+#define PIN_A3               (28u)
+#define PIN_A4               (29u)
+#define PIN_A5               (30u)
 
 static const uint8_t A0  = PIN_A0;
 static const uint8_t A1  = PIN_A1;
@@ -70,43 +76,60 @@ static const uint8_t A5  = PIN_A5;
 #define ADC_RESOLUTION    10
 #endif
 
-/*
- * Serial interfaces
- */
-// Serial
-#define PIN_SERIAL_RX       (17)
-#define PIN_SERIAL_TX       (18)
+// Other pins
+#define PIN_AREF           (24)
+static const uint8_t AREF = PIN_AREF;
 
 /*
  * SPI Interfaces
  */
 #define SPI_INTERFACES_COUNT 1
 
-#define PIN_SPI_MISO         (3)
-#define PIN_SPI_MOSI         (2)
-#define PIN_SPI_SCK          (1)
+#define PIN_SPI_MISO         (21u)
+#define PIN_SPI_MOSI         (22u)
+#define PIN_SPI_SCK          (23u)
 
-static const uint8_t SS   = 29;
+static const uint8_t SS   = 20u;
 static const uint8_t MOSI = PIN_SPI_MOSI;
 static const uint8_t MISO = PIN_SPI_MISO;
 static const uint8_t SCK  = PIN_SPI_SCK;
 
-#define OLED_RST	(30)
-#define OLED_CS		(29)
-#define OLED_DC		(0)
+/*
+ * Serial interfaces
+ */
+// Serial
+#ifdef STCT_NRF52_minidev_RGZ  // J11 - J12 soldered (RGZ)
+#define PIN_SERIAL_RX       (2u)
+#define PIN_SERIAL_TX       (3u)
+#elif defined (STCT_NRF52_minidev_RSM)  // J15 - J16 soldered (RSM)
+#define PIN_SERIAL_RX       (1u)
+#define PIN_SERIAL_TX       (2u)
+#else // original configuration
+#define PIN_SERIAL_RX       (18u)
+#define PIN_SERIAL_TX       (19u)
+#endif
 
 /*
  * Wire Interfaces
  */
 #define WIRE_INTERFACES_COUNT 1
 
-#ifdef ACCEL_HWI2C
-#define PIN_WIRE_SDA        14 // Kx022 - Accelerometer Sensor
-#define PIN_WIRE_SCL        16
-#else
-#define PIN_WIRE_SDA        22u // Si1143 - HeartRate Sensor
-#define PIN_WIRE_SCL        23u
+#ifdef STCT_NRF52_minidev_RGZ
+#define PIN_WIRE_SDA         (7u)
+#define PIN_WIRE_SCL         (8u)
+#elif defined (STCT_NRF52_minidev_RSM)
+#define PIN_WIRE_SDA         (7u)
+#define PIN_WIRE_SCL         (8u)
+#else // original configuration
+#define PIN_WIRE_SDA         (2u)
+#define PIN_WIRE_SCL         (3u)
 #endif
+
+//#define PIN_WIRE1_SDA         (11u)
+//#define PIN_WIRE1_SCL         (12u)
+
+static const uint8_t SDA = PIN_WIRE_SDA;
+static const uint8_t SCL = PIN_WIRE_SCL;
 
 #ifdef __cplusplus
 }

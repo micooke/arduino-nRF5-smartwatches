@@ -1,0 +1,21 @@
+To share my experience with the nRF52832.
+I was unable to disable the read protection / flash lock with a BMP or ST-Link V2, but i was successful with a J-Link.
+
+When nRF52832 chip is read protected / locked, the first step is to try:
+nrfjprog –recover -f nrf52
+
+This performs the same task as:
+>Jlink -if swd -device nrf52
+J-Link>SWDSelect
+J-Link>SWDWriteDP 1, 0x50000000
+J-Link>SWDWriteDP 2, 0x01000000
+J-Link>SWDWriteAP 1, 0x00000001
+
+Wait until AP 2 is 0, and the operation is complete
+J-Link>SWDReadAP 2
+
+If two successive reads from AP 3 produce 0, then 1 then protection is disabled
+J-Link>SWDReadAP 3
+J-Link>SWDReadAP 3
+
+Tested with JLink v6.20b

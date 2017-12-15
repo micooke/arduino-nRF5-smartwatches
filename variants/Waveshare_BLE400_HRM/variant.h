@@ -14,8 +14,8 @@
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#ifndef _VARIANT_ID107HR_
-#define _VARIANT_ID107HR_
+#ifndef _VARIANT_WAVESHARE_BLE400_
+#define _VARIANT_WAVESHARE_BLE400_
 
 /** Master clock frequency */
 #ifdef NRF52
@@ -41,12 +41,17 @@ extern "C"
 #define NUM_ANALOG_INPUTS    (6u)
 #define NUM_ANALOG_OUTPUTS   (0u)
 
-// Buttons
-#define PIN_BUTTON1             (4)
-#define PIN_BUTTON2             (7)
+// LEDs
+#define PIN_LED1              (18)
+#define PIN_LED2              (19)
+#define PIN_LED3              (20)
+#define PIN_LED4              (21)
+#define PIN_LED5              (22)
+#define LED_BUILTIN          PIN_LED1
 
-#define PIN_VIBRATE				(6)
-#define LED_BUILTIN				PIN_VIBRATE
+// Buttons
+#define PIN_BUTTON1             (16)
+#define PIN_BUTTON2             (17)
 
 /*
  * Analog pins
@@ -58,12 +63,12 @@ extern "C"
 #define PIN_A4               (6)
 #define PIN_A5               (7)
 
-static const uint8_t A0  = PIN_A0;
-static const uint8_t A1  = PIN_A1;
-static const uint8_t A2  = PIN_A2;
-static const uint8_t A3  = PIN_A3;
-static const uint8_t A4  = PIN_A4;
-static const uint8_t A5  = PIN_A5;
+static const uint8_t A0  = PIN_A0 ;
+static const uint8_t A1  = PIN_A1 ;
+static const uint8_t A2  = PIN_A2 ;
+static const uint8_t A3  = PIN_A3 ;
+static const uint8_t A4  = PIN_A4 ;
+static const uint8_t A5  = PIN_A5 ;
 #ifdef NRF52
 #define ADC_RESOLUTION    14
 #else
@@ -74,39 +79,33 @@ static const uint8_t A5  = PIN_A5;
  * Serial interfaces
  */
 // Serial
-#define PIN_SERIAL_RX       (17)
-#define PIN_SERIAL_TX       (18)
+#define PIN_SERIAL_RX       (11)
+#define PIN_SERIAL_TX       (9)
 
 /*
  * SPI Interfaces
  */
 #define SPI_INTERFACES_COUNT 1
 
-#define PIN_SPI_MISO         (3)
-#define PIN_SPI_MOSI         (2)
-#define PIN_SPI_SCK          (1)
+#define PIN_SPI_MISO         (23)
+#define PIN_SPI_MOSI         (24)
+#define PIN_SPI_SCK          (25)
 
-static const uint8_t SS   = 29;
-static const uint8_t MOSI = PIN_SPI_MOSI;
-static const uint8_t MISO = PIN_SPI_MISO;
-static const uint8_t SCK  = PIN_SPI_SCK;
-
-#define OLED_RST	(30)
-#define OLED_CS		(29)
-#define OLED_DC		(0)
+static const uint8_t SS   = 30 ;
+static const uint8_t MOSI = PIN_SPI_MOSI ;
+static const uint8_t MISO = PIN_SPI_MISO ;
+static const uint8_t SCK  = PIN_SPI_SCK ;
 
 /*
  * Wire Interfaces
  */
 #define WIRE_INTERFACES_COUNT 1
 
-#ifdef ACCEL_HWI2C
-#define PIN_WIRE_SDA        14 // Kx022 - Accelerometer Sensor
-#define PIN_WIRE_SCL        16
-#else
-#define PIN_WIRE_SDA        22u // Si1143 - HeartRate Sensor
-#define PIN_WIRE_SCL        23u
-#endif
+#define PIN_WIRE_SDA         (0u)
+#define PIN_WIRE_SCL         (1u)
+
+static const uint8_t SDA = PIN_WIRE_SDA;
+static const uint8_t SCL = PIN_WIRE_SCL;
 
 #ifdef __cplusplus
 }

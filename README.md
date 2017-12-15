@@ -1,6 +1,6 @@
 ## Nordic Semiconductor nRF5 Smartwatches
 
-This work piggy backs on previous work by many people, mainly : [@goran-mahovlic](https://github.com/goran-mohavlic), [@rogerclarkmelbourne](https://github.com/rogerclarkmelbourne/), [@curtpw](https://github.com/curtpw/), [@Gordon](http://forum.espruino.com/profiles/224/)
+This work piggy backs on previous work by many people, mainly : [@goran-mahovlic](https://github.com/goran-mahovlic), [@rogerclarkmelbourne](https://github.com/rogerclarkmelbourne/), [@curtpw](https://github.com/curtpw/), [@Gordon](http://forum.espruino.com/profiles/224/)
 
 Most of these watches are made by [idoosmart](http://www.idoosmart.com) and can be purchased from their [aliexpress](https://ido-smart.en.alibaba.com/productgrouplist-0/Ungrouped.html?) company site.
 
@@ -13,6 +13,7 @@ Included in this package:
 2. [ID100HR](https://github.com/micooke/micooke.github.io/blob/master/arduino-nRF5-smartwatches/images/ID100HR_back.jpg)
 3. [ID107HR](https://github.com/micooke/micooke.github.io/blob/master/arduino-nRF5-smartwatches/images/ID107HR_back.jpg)
 4. [ID107HR Plus](https://github.com/micooke/micooke.github.io/blob/master/arduino-nRF5-smartwatches/images/ID107HRPlus_disected.jpg) (alpha) - dont expect this to work
+5. LEMDOIE T28 T28 (WIP - dont expect this to work)
 
 I am happy to accept pull requests for any nRF51 or nRF52 based smartwatch, but will be unable to test anything except for the ID107HR (v2.4) unless you are feeling generous and want to send me one :wink:.
 
@@ -76,6 +77,10 @@ Progamming is via a SWD programmer (J-Link, ST-Link etc.) using sandeep's core.
 * --- : not applicable
 *  ?  : unknown
 * \*  : unknown (easily found - perform an analog read on each pin), but AIN{0:7} = p{28,27,1,2,3,4,9,10} so it must be one of p9,p10,p27,p28
+
+### I2C addresses
+1. 0x1F : Accelerometer (Kx022)
+2. 0x5A : Heart Rate Sensor / PPG (Si1143)
 
 ### References
 * nRF5 core is written and maintained by Sandeep Mistry

@@ -19,6 +19,7 @@ menu.softdevice=Softdevice
 menu.version=Version
 menu.lfclk=Low Frequency Clock
 menu.board_variant=Board Variant
+menu.gpio_config=GPIO Configuration
 
 # -----------------------------------------------------------------------------
 IDO003.name=IDO003
@@ -38,9 +39,7 @@ IDO003.build.variant_system_lib=
 IDO003.build.extra_flags=-DNRF51 -DIDO003 -I{build.path}
 IDO003.build.float_flags=
 IDO003.build.ldscript=nrf51_{build.chip}.ld
-
-IDO003.menu.chip.xxac=16 kB RAM, 256 kB flash (xxaa)
-IDO003.menu.chip.xxac.build.chip=xxaa
+IDO003.build.chip=xxaa
 
 IDO003.menu.softdevice.s130=S130
 IDO003.menu.softdevice.s130.softdevice=s130
@@ -79,10 +78,9 @@ ID100HR.build.variant=ID100HR
 ID100HR.build.variant_system_lib=
 ID100HR.build.extra_flags=-DNRF51 -DID100HR -I{build.path}
 ID100HR.build.float_flags=
+ID100HR.build.lfclk_flags=-DUSE_LFXO
 ID100HR.build.ldscript=nrf51_{build.chip}.ld
-
-ID100HR.menu.chip.xxac=32 kB RAM, 256 kB flash (xxac)
-ID100HR.menu.chip.xxac.build.chip=xxac
+ID100HR.build.chip=xxac
 
 ID100HR.menu.softdevice.s130=S130
 ID100HR.menu.softdevice.s130.softdevice=s130
@@ -94,9 +92,6 @@ ID100HR.menu.softdevice.s130.build.ldscript=armgcc_s130_nrf51822_{build.chip}.ld
 ID100HR.menu.softdevice.none=None
 ID100HR.menu.softdevice.none.softdevice=none
 ID100HR.menu.softdevice.none.softdeviceversion=
-
-ID100HR.menu.lfclk.lfxo=Crystal Oscillator
-ID100HR.menu.lfclk.lfxo.build.lfclk_flags=-DUSE_LFXO
 
 # -----------------------------------------------------------------------------
 ID107HR.name=ID107HR
@@ -115,10 +110,9 @@ ID107HR.build.variant=ID107HR
 ID107HR.build.variant_system_lib=
 ID107HR.build.extra_flags=-DNRF51 -DID107HR -I{build.path}
 ID107HR.build.float_flags=
+ID107HR.build.lfclk_flags=-DUSE_LFXO
 ID107HR.build.ldscript=nrf51_{build.chip}.ld
-
-ID107HR.menu.chip.xxac=32 kB RAM, 256 kB flash (xxac)
-ID107HR.menu.chip.xxac.build.chip=xxac
+ID107HR.build.chip=xxac
 
 ID107HR.menu.softdevice.s130=S130
 ID107HR.menu.softdevice.s130.softdevice=s130
@@ -131,15 +125,18 @@ ID107HR.menu.softdevice.none=None
 ID107HR.menu.softdevice.none.softdevice=none
 ID107HR.menu.softdevice.none.softdeviceversion=
 
-ID107HR.menu.lfclk.lfxo=Crystal Oscillator
-ID107HR.menu.lfclk.lfxo.build.lfclk_flags=-DUSE_LFXO
+ID107HR.menu.board_variant.accel_hwi2c=I2C:Accel=HW, HeartRate=SW
+ID107HR.menu.board_variant.accel_hwi2c.build.lfclk_flags=-DUSE_LFXO -DACCEL_HWI2C
+
+ID107HR.menu.board_variant.heartrate_hwi2c=I2C:Accel=SW, HeartRate=HW
+ID107HR.menu.board_variant.heartrate_hwi2c.build.lfclk_flags=-DUSE_LFXO -DHEARTRATE_HWI2C
 
 # -----------------------------------------------------------------------------
 ID107HRPlus.name=ID107HR Plus
 
 ID107HRPlus.upload.tool=sandeepmistry:openocd
-ID107HRPlus.upload.target=nrf51
-ID107HRPlus.upload.maximum_size=262144
+ID107HRPlus.upload.target=nrf52
+ID107HRPlus.upload.maximum_size=524288
 
 ID107HRPlus.bootloader.tool=sandeepmistry:openocd
 
@@ -152,9 +149,7 @@ ID107HRPlus.build.variant_system_lib=
 ID107HRPlus.build.extra_flags=-DNRF52 -DID107HRPlus -I{build.path}
 ID107HRPlus.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
 ID107HRPlus.build.ldscript=nrf52_{build.chip}.ld
-
-ID107HRPlus.menu.chip.xxaa=64 kB RAM, 512 kB flash (xxaa)
-ID107HRPlus.menu.chip.xxaa.build.chip=xxaa
+ID107HRPlus.build.chip=xxaa
 
 ID107HRPlus.menu.softdevice.s132=S132
 ID107HRPlus.menu.softdevice.s132.softdevice=s132
@@ -169,3 +164,116 @@ ID107HRPlus.menu.softdevice.none.softdeviceversion=
 
 ID107HRPlus.menu.lfclk.lfxo=Crystal Oscillator
 ID107HRPlus.menu.lfclk.lfxo.build.lfclk_flags=-DUSE_LFXO
+
+# -----------------------------------------------------------------------------
+T28.name=LEMDOIE T28
+
+T28.upload.tool=sandeepmistry:openocd
+T28.upload.target=nrf52
+T28.upload.maximum_size=524288
+
+T28.bootloader.tool=sandeepmistry:openocd
+
+T28.build.mcu=cortex-m4
+T28.build.f_cpu=16000000
+T28.build.board=T28
+T28.build.core=sandeepmistry:nRF5
+T28.build.variant=T28
+T28.build.variant_system_lib=
+T28.build.extra_flags=-DCONFIG_NFCT_PINS_AS_GPIOS -DNRF52 -DT28 -I{build.path}
+T28.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
+T28.build.ldscript=nrf52_{build.chip}.ld
+T28.build.chip=xxaa
+
+T28.menu.softdevice.s132=S132
+T28.menu.softdevice.s132.softdevice=s132
+T28.menu.softdevice.s132.softdeviceversion=2.0.1
+T28.menu.softdevice.s132.upload.maximum_size=409600
+T28.menu.softdevice.s132.build.extra_flags=-DNRF52 -DS132 -DNRF52_S132
+T28.menu.softdevice.s132.build.ldscript=armgcc_s132_nrf52832_{build.chip}.ld
+
+T28.menu.softdevice.none=None
+T28.menu.softdevice.none.softdevice=none
+T28.menu.softdevice.none.softdeviceversion=
+
+T28.menu.lfclk.lfrc=RC Oscillator
+T28.menu.lfclk.lfrc.build.lfclk_flags=-DUSE_LFRC
+
+# -----------------------------------------------------------------------------
+Waveshare_BLE400_HRM.name=Waveshare BLE400
+
+Waveshare_BLE400_HRM.upload.tool=sandeepmistry:openocd
+Waveshare_BLE400_HRM.upload.target=nrf51
+Waveshare_BLE400_HRM.upload.maximum_size=262144
+Waveshare_BLE400_HRM.bootloader.tool=sandeepmistry:openocd
+Waveshare_BLE400_HRM.build.mcu=cortex-m0
+Waveshare_BLE400_HRM.build.f_cpu=16000000
+Waveshare_BLE400_HRM.build.board=WAVESHARE_BLE400_HRM
+Waveshare_BLE400_HRM.build.core=sandeepmistry:nRF5
+Waveshare_BLE400_HRM.build.variant=Waveshare_BLE400_HRM
+Waveshare_BLE400_HRM.build.variant_system_lib=
+Waveshare_BLE400_HRM.build.extra_flags=-DNRF51
+Waveshare_BLE400_HRM.build.float_flags=
+Waveshare_BLE400_HRM.build.ldscript=nrf51_{build.chip}.ld
+Waveshare_BLE400_HRM.build.lfclk_flags=-DUSE_LFXO
+Waveshare_BLE400_HRM.menu.chip.xxac=32 kB RAM, 256 kB flash (xxac)
+Waveshare_BLE400_HRM.menu.chip.xxac.build.chip=xxac
+Waveshare_BLE400_HRM.menu.softdevice.s130=S130
+Waveshare_BLE400_HRM.menu.softdevice.s130.softdevice=s130
+Waveshare_BLE400_HRM.menu.softdevice.s130.softdeviceversion=2.0.1
+Waveshare_BLE400_HRM.menu.softdevice.s130.upload.maximum_size=151552
+Waveshare_BLE400_HRM.menu.softdevice.s130.build.extra_flags=-DNRF51 -DS130 -DNRF51_S130
+Waveshare_BLE400_HRM.menu.softdevice.s130.build.ldscript=armgcc_s130_nrf51822_{build.chip}.ld
+Waveshare_BLE400_HRM.menu.softdevice.none=None
+Waveshare_BLE400_HRM.menu.softdevice.none.softdevice=none
+Waveshare_BLE400_HRM.menu.softdevice.none.softdeviceversion=
+
+# -----------------------------------------------------------------------------
+STCT_nRF52_minidev.name=Taida Century nRF52 mini board
+
+STCT_nRF52_minidev.upload.tool=sandeepmistry:openocd
+STCT_nRF52_minidev.upload.target=nrf52
+STCT_nRF52_minidev.upload.maximum_size=524288
+
+STCT_nRF52_minidev.bootloader.tool=sandeepmistry:openocd
+
+STCT_nRF52_minidev.build.mcu=cortex-m4
+STCT_nRF52_minidev.build.f_cpu=16000000
+STCT_nRF52_minidev.build.board=STCT_NRF52_minidev
+STCT_nRF52_minidev.build.core=sandeepmistry:nRF5
+STCT_nRF52_minidev.build.variant=Taida_Century_nRF52_minidev
+STCT_nRF52_minidev.build.variant_system_lib=
+STCT_nRF52_minidev.build.extra_flags=-DNRF52
+STCT_nRF52_minidev.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
+STCT_nRF52_minidev.build.ldscript=nrf52_xxaa.ld
+
+STCT_nRF52_minidev.build.lfclk_flags=-DUSE_LFXO
+
+STCT_nRF52_minidev.menu.gpio_config.default=No Pin Reset, NFC pins as Antenna (default)
+STCT_nRF52_minidev.menu.gpio_config.default.build.gpio_flags=
+STCT_nRF52_minidev.menu.gpio_config.PinResetNFCAntenna=Pin Reset, NFC pins as Antenna
+STCT_nRF52_minidev.menu.gpio_config.PinResetNFCAntenna.build.gpio_flags=-DCONFIG_GPIO_AS_PINRESET
+STCT_nRF52_minidev.menu.gpio_config.NoPinResetNFCGPIO=No Pin Reset, NFC pins as GPIO
+STCT_nRF52_minidev.menu.gpio_config.NoPinResetNFCGPIO.build.gpio_flags=-DCONFIG_NFCT_PINS_AS_GPIOS
+STCT_nRF52_minidev.menu.gpio_config.PinResetNFCGPIO=Pin Reset, NFC pins as GPIO
+STCT_nRF52_minidev.menu.gpio_config.PinResetNFCGPIO.build.gpio_flags=-DCONFIG_GPIO_AS_PINRESET -DCONFIG_NFCT_PINS_AS_GPIOS
+
+STCT_nRF52_minidev.menu.softdevice.none=None
+STCT_nRF52_minidev.menu.softdevice.none.softdevice=none
+STCT_nRF52_minidev.menu.softdevice.none.softdeviceversion=
+
+STCT_nRF52_minidev.menu.softdevice.s132=S132
+STCT_nRF52_minidev.menu.softdevice.s132.softdevice=s132
+STCT_nRF52_minidev.menu.softdevice.s132.softdeviceversion=2.0.1
+STCT_nRF52_minidev.menu.softdevice.s132.upload.maximum_size=409600
+STCT_nRF52_minidev.menu.softdevice.s132.build.extra_flags=-DNRF52 -DS132 -DNRF52_S132
+STCT_nRF52_minidev.menu.softdevice.s132.build.ldscript=armgcc_s132_nrf52832_xxaa.ld
+
+STCT_nRF52_minidev.menu.board_variant.none=None
+STCT_nRF52_minidev.menu.board_variant.rgz.build.lfclk_flags=-DUSE_LFXO -DSTCT_NRF52_minidev
+
+STCT_nRF52_minidev.menu.board_variant.rgz=RGZ
+STCT_nRF52_minidev.menu.board_variant.rgz.build.lfclk_flags=-DUSE_LFXO -DSTCT_NRF52_minidev_RGZ
+
+STCT_nRF52_minidev.menu.board_variant.rsm=RSM
+STCT_nRF52_minidev.menu.board_variant.rsm.build.lfclk_flags=-DUSE_LFXO -DSTCT_NRF52_minidev_RSM

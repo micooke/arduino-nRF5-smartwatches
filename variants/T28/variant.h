@@ -14,8 +14,8 @@
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#ifndef _VARIANT_ID107HR_
-#define _VARIANT_ID107HR_
+#ifndef _VARIANT_T28_
+#define _VARIANT_T28_
 
 /** Master clock frequency */
 #ifdef NRF52
@@ -36,27 +36,35 @@ extern "C"
 #endif // __cplusplus
 
 // Number of pins defined in PinDescription array
-#define PINS_COUNT           (31u)
-#define NUM_DIGITAL_PINS     (31u)
-#define NUM_ANALOG_INPUTS    (6u)
-#define NUM_ANALOG_OUTPUTS   (0u)
+#define PINS_COUNT           32u
+#define NUM_DIGITAL_PINS     20u
+#define NUM_ANALOG_INPUTS    8u
+#define NUM_ANALOG_OUTPUTS   0u
 
 // Buttons
-#define PIN_BUTTON1             (4)
-#define PIN_BUTTON2             (7)
+#define PIN_BUTTON1          20u // TOP
+#define PIN_BUTTON2          24u // BOTTOM
+#define PIN_TOUCH            2u // RH6015-C, input OC
 
-#define PIN_VIBRATE				(6)
-#define LED_BUILTIN				PIN_VIBRATE
+#define PIN_VIBRATE          10u
+#define PIN_HR_ON             9u
+
+#define PIN_OLED_VPP          1u
+#define PIN_OLED_SW           3u
+
+#define LED_BUILTIN PIN_VIBRATE
 
 /*
  * Analog pins
  */
-#define PIN_A0               (2)
-#define PIN_A1               (3)
-#define PIN_A2               (4)
-#define PIN_A3               (5)
-#define PIN_A4               (6)
-#define PIN_A5               (7)
+#define PIN_A0               2u
+#define PIN_A1               3u
+#define PIN_A2               4u
+#define PIN_A3               5u
+#define PIN_A4               28u
+#define PIN_A5               29u
+#define PIN_A6               30u
+#define PIN_A7               31u
 
 static const uint8_t A0  = PIN_A0;
 static const uint8_t A1  = PIN_A1;
@@ -74,39 +82,55 @@ static const uint8_t A5  = PIN_A5;
  * Serial interfaces
  */
 // Serial
-#define PIN_SERIAL_RX       (17)
-#define PIN_SERIAL_TX       (18)
+
+#define PIN_SERIAL_RX       25u//31u // ublox TX (9600 BAUD)
+#define PIN_SERIAL_TX       26u//11u // ublox RX
+
+// To vacant pads near HR ribbon
+// +------------------ribbon-------------
+// | [  Top ] - To K42 Mosfet P0.09
+// | [      ] - P0.04
+// | [      ] - VSS
+// +-------------------------------------
+//   [      ] - P0.02
+//   [      ] - P0.26 // debug Tx
+//   [Bottom] - P0.25 // debug Rx
+//
+#define PIN_SERIAL1_RX       31u
+#define PIN_SERIAL1_TX       11u
 
 /*
  * SPI Interfaces
  */
-#define SPI_INTERFACES_COUNT 1
 
-#define PIN_SPI_MISO         (3)
-#define PIN_SPI_MOSI         (2)
-#define PIN_SPI_SCK          (1)
+#define SPI_INTERFACES_COUNT 2
 
-static const uint8_t SS   = 29;
+#define PIN_SPI_MISO         5u // -1// OLED - 4 wire SPI
+#define PIN_SPI_MOSI         18u
+#define PIN_SPI_SCK          17u
+//#define PIN_SPI_CS           28u
+
+#define PIN_SPI1_MISO        19u // GT22
+#define PIN_SPI1_MOSI        23u
+#define PIN_SPI1_SCK         22u
+#define PIN_SPI1_CS          21u
+
+static const uint8_t SS   = 28u;
 static const uint8_t MOSI = PIN_SPI_MOSI;
 static const uint8_t MISO = PIN_SPI_MISO;
 static const uint8_t SCK  = PIN_SPI_SCK;
 
-#define OLED_RST	(30)
-#define OLED_CS		(29)
-#define OLED_DC		(0)
+#define OLED_RST  14u
+#define OLED_CS   28u
+#define OLED_DC   30u
 
 /*
  * Wire Interfaces
  */
-#define WIRE_INTERFACES_COUNT 1
+#define WIRE_INTERFACES_COUNT 0
 
-#ifdef ACCEL_HWI2C
-#define PIN_WIRE_SDA        14 // Kx022 - Accelerometer Sensor
-#define PIN_WIRE_SCL        16
-#else
-#define PIN_WIRE_SDA        22u // Si1143 - HeartRate Sensor
-#define PIN_WIRE_SCL        23u
-#endif
+#define PIN_WIRE_SDA         13u // Kx023
+#define PIN_WIRE_SCL         16u // Kx023
 
 #ifdef __cplusplus
 }
