@@ -17,6 +17,23 @@ Included in this package:
 
 I am happy to accept pull requests for any nRF51 or nRF52 based smartwatch, but will be unable to test anything except for the ID107HR (v2.4) unless you are feeling generous and want to send me one :wink:.
 
+### Libraries
+The following libraries (which work with this core) have been added as submodules:
+1. u8g2 (OLED library) https://github.com/olikraus/U8g2_Arduino
+2. sparkfun-based OLED library https://github.com/micooke/sparkfun_OLED
+3. Software I2C https://github.com/micooke/SoftwareI2C
+4. Software Serial https://github.com/micooke/SoftwareSerial - requirement: https://github.com/sandeepmistry/arduino-nRF5/pull/205
+5. Accelerometer https://github.com/micooke/Kx022-1020
+6. Heartrate sensor (Si1143) - work in progress
+
+I recommend using the u8g2 library over my sparkfun_OLED library.
+
+To get these libraries without using the board manager:
+```
+git clone https://github.com/micooke/arduino-nRF5-smartwatches.git
+git submodule update --init --recursive
+```
+
 ### Note
 Im not sure about the ID100HR variant. The pin mapping has been taken from posts about the ID100HR, as well as posts on the ID107HR which appeared to have the same pin mapping.
 
