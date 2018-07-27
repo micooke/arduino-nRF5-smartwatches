@@ -10,3 +10,6 @@
 [submodule "libraries/SoftwareI2C"]
 	path = libraries/SoftwareI2C
 	url = https://github.com/micooke/SoftwareI2C.git
+[submodule "libraries/HP203B"]
+	path = libraries/HP203B
+	url = https://github.com/micooke/HP203B
