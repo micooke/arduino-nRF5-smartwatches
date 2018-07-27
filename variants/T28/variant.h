@@ -83,8 +83,8 @@ static const uint8_t A5  = PIN_A5;
  */
 // Serial
 
-#define PIN_SERIAL_RX       25u//31u // ublox TX (9600 BAUD)
-#define PIN_SERIAL_TX       26u//11u // ublox RX
+#define PIN_SERIAL_RX       25u
+#define PIN_SERIAL_TX       26u
 
 // To vacant pads near HR ribbon
 // +------------------ribbon-------------

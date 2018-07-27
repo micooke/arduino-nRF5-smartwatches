@@ -8,25 +8,31 @@ Be careful when purchasing from a third party reseller as there have been instan
 
 Note : I have no affiliation with idoosmart / Shenzhen DO Intelligent Technology Co,. Ltd, nor any aliexpress or smartwatch retailer.
 
-Included in this package:
+Included smartwatches:
 1. [IDO003](https://github.com/micooke/micooke.github.io/blob/master/arduino-nRF5-smartwatches/images/IDO003_back.jpg)
 2. [ID100HR](https://github.com/micooke/micooke.github.io/blob/master/arduino-nRF5-smartwatches/images/ID100HR_back.jpg)
 3. [ID107HR](https://github.com/micooke/micooke.github.io/blob/master/arduino-nRF5-smartwatches/images/ID107HR_back.jpg)
 4. [ID107HR Plus](https://github.com/micooke/micooke.github.io/blob/master/arduino-nRF5-smartwatches/images/ID107HRPlus_disected.jpg) (alpha) - dont expect this to work
-5. LEMDOIE T28 T28 (WIP - dont expect this to work)
+5. [LEMDOIE T28](https://github.com/micooke/micooke.github.io/blob/master/nRF52832_Lemdoie_T28.md)
 
-I am happy to accept pull requests for any nRF51 or nRF52 based smartwatch, but will be unable to test anything except for the ID107HR (v2.4) unless you are feeling generous and want to send me one :wink:.
+Included Generic development boards:
+6. [Taida Century nRF52 mini board / nRF52832 Gold Core](https://github.com/micooke/micooke.github.io/blob/master/nRF52832_TaidaCentury_GoldCore.md)
+7. [Waveshare BLE400](https://www.waveshare.com/wiki/BLE400)
+
+I am happy to accept pull requests for any nRF51 or nRF52 based smartwatch, but will be unable to test anything except for the ID107HR (v2.4) and T28 unless you are feeling generous and want to send me one :wink:.
 
 ### Libraries
 The following libraries (which work with this core) have been added as submodules:
-1. u8g2 (OLED library) https://github.com/olikraus/U8g2_Arduino
+1. U8g2_Arduino (OLED library) https://github.com/olikraus/U8g2_Arduino
 2. sparkfun-based OLED library https://github.com/micooke/sparkfun_OLED
 3. Software I2C https://github.com/micooke/SoftwareI2C
 4. Software Serial https://github.com/micooke/SoftwareSerial - requirement: https://github.com/sandeepmistry/arduino-nRF5/pull/205
 5. Accelerometer https://github.com/micooke/Kx022-1020
-6. Heartrate sensor (Si1143) - work in progress
+6. (work in progress) Si1143 Heartrate sensor https://github.com/micooke/Si1143
 
-I recommend using the u8g2 library over my sparkfun_OLED library.
+#### I recommend using the u8g2 library over any of my OLED libraries!
+
+My Squix78 based OLED [library](https://github.com/micooke/squix78_OLED) also works.
 
 To get these libraries without using the board manager:
 ```
@@ -43,7 +49,11 @@ My ID107HR is a v2.4 and it does not match the pin mapping of the ID100HR. So if
 These watches can be programmed by soldering directly to the SWDIO, SWCLK and GND pins.
 You can also connect to the TX and RX pins for debugging.
 
-The ID107HR Plus is the only watch (out of the supported watches) that does not label these pads by silkscreen so please see [ID107HR Plus pads](images/ID107HRPlus_pads.jpg) for these pins (and as i dont have one - if you know, please tell me which pin is ground!). Serial UART Tx,Rx was chosen to be on p23,p24 because the pads are next to the programming pins.
+The T28 and ID107HR Plus do not label these pads by silkscreen so please see [ID107HR Plus pads](images/ID107HRPlus_pads.jpg), ![T28 Front1](nRF52832_Lemdoie_T28/T28_Front1.jpg), ![T28 Front2](nRF52832_Lemdoie_T28/T28_Front2.jpg) for these pins.
+
+The ID107HR+ UART Tx,Rx were chosen to be on p23,p24 because the pads are next to the programming pins.
+
+The T28 UART Tx,Rx were chosen to be on p26,p25 as their pads are near the OLED ribbon.
 
 Progamming is via a SWD programmer (J-Link, ST-Link etc.) using sandeep's core.
 
@@ -60,6 +70,9 @@ Progamming is via a SWD programmer (J-Link, ST-Link etc.) using sandeep's core.
 6. Select your nRF5 smartwatch from the Tools -> Board menu
 
 ### Pin allocation
+
+The nRF52 based T28 is quite different. Its pin allocation table is located [here](https://github.com/micooke/micooke.github.io/blob/master/nRF52832_Lemdoie_T28.md)
+
 
 | peripheral type         | name   | pin          | IDO003 | ID100HR | ID107HR | ID107HR Plus
 | :---:                   | :---:  | :---:        | :---:  | :---:   | :---:   | :---:
@@ -96,8 +109,9 @@ Progamming is via a SWD programmer (J-Link, ST-Link etc.) using sandeep's core.
 * \*  : unknown (easily found - perform an analog read on each pin), but AIN{0:7} = p{28,27,1,2,3,4,9,10} so it must be one of p9,p10,p27,p28
 
 ### I2C addresses
-1. 0x1F : Accelerometer (Kx022)
+1. 0x1F : Accelerometer (Kx022/Kx023)
 2. 0x5A : Heart Rate Sensor / PPG (Si1143)
+3. 0x76 : Altitude / Pressure / Temperature (HP203B)
 
 ### References
 * nRF5 core is written and maintained by Sandeep Mistry
