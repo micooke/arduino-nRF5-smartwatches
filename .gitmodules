@@ -13,3 +13,6 @@
 [submodule "libraries/HP203B"]
 	path = libraries/HP203B
 	url = https://github.com/micooke/HP203B
+[submodule "libraries/Si1143"]
+	path = libraries/Si1143
+	url = https://github.com/micooke/Si1143
