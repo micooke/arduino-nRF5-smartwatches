@@ -1,6 +1,6 @@
 /*
   Copyright (c) 2014-2015 Arduino LLC.  All right reserved.
-  Copyright (c) 2016 Sandeep Mistry All right reserved.
+  Copyright (c) 2018 Mark Cooke All right reserved.
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Lesser General Public
   License as published by the Free Software Foundation; either
@@ -103,9 +103,13 @@ static const uint8_t SCK  = PIN_SPI_SCK;
 #ifdef ACCEL_HWI2C
 #define PIN_WIRE_SDA        14 // Kx022 - Accelerometer Sensor
 #define PIN_WIRE_SCL        16
+#define PIN_WIRE1_SDA       22u // Si1143 - HeartRate Sensor
+#define PIN_WIRE1_SCL       23u
 #else
 #define PIN_WIRE_SDA        22u // Si1143 - HeartRate Sensor
 #define PIN_WIRE_SCL        23u
+#define PIN_WIRE1_SDA       14 // Kx022 - Accelerometer Sensor
+#define PIN_WIRE1_SCL       16
 #endif
 
 #ifdef __cplusplus

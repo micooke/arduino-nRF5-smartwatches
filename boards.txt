@@ -199,6 +199,52 @@ T28.menu.softdevice.none.softdeviceversion=
 T28.menu.lfclk.lfrc=RC Oscillator
 T28.menu.lfclk.lfrc.build.lfclk_flags=-DUSE_LFRC
 
+T28.menu.board_variant.accel_hwi2c=I2C:Accel=HW, HeartRate=SW
+T28.menu.board_variant.accel_hwi2c.build.lfclk_flags=-DUSE_LFXO -DACCEL_HWI2C
+
+T28.menu.board_variant.heartrate_hwi2c=I2C:Accel=SW, HeartRate=HW
+T28.menu.board_variant.heartrate_hwi2c.build.lfclk_flags=-DUSE_LFXO -DHEARTRATE_HWI2C
+
+# -----------------------------------------------------------------------------
+DS_D6.name=MPow DS-D6
+
+DS_D6.upload.tool=sandeepmistry:openocd
+DS_D6.upload.target=nrf52
+DS_D6.upload.maximum_size=524288
+
+DS_D6.bootloader.tool=sandeepmistry:openocd
+
+DS_D6.build.mcu=cortex-m4
+DS_D6.build.f_cpu=16000000
+DS_D6.build.board=DS_D6
+DS_D6.build.core=sandeepmistry:nRF5
+DS_D6.build.variant=DS_D6
+DS_D6.build.variant_system_lib=
+DS_D6.build.extra_flags=-DCONFIG_NFCT_PINS_AS_GPIOS -DNRF52 -DDS_D6 -I{build.path}
+DS_D6.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
+DS_D6.build.ldscript=nrf52_{build.chip}.ld
+DS_D6.build.chip=xxaa
+
+DS_D6.menu.softdevice.s132=S132
+DS_D6.menu.softdevice.s132.softdevice=s132
+DS_D6.menu.softdevice.s132.softdeviceversion=2.0.1
+DS_D6.menu.softdevice.s132.upload.maximum_size=409600
+DS_D6.menu.softdevice.s132.build.extra_flags=-DNRF52 -DS132 -DNRF52_S132
+DS_D6.menu.softdevice.s132.build.ldscript=armgcc_s132_nrf52832_{build.chip}.ld
+
+DS_D6.menu.softdevice.none=None
+DS_D6.menu.softdevice.none.softdevice=none
+DS_D6.menu.softdevice.none.softdeviceversion=
+
+DS_D6.menu.lfclk.lfrc=RC Oscillator
+DS_D6.menu.lfclk.lfrc.build.lfclk_flags=-DUSE_LFRC
+
+DS_D6.menu.board_variant.accel_hwi2c=I2C:Accel=HW, HeartRate=SW
+DS_D6.menu.board_variant.accel_hwi2c.build.lfclk_flags=-DUSE_LFXO -DACCEL_HWI2C
+
+DS_D6.menu.board_variant.heartrate_hwi2c=I2C:Accel=SW, HeartRate=HW
+DS_D6.menu.board_variant.heartrate_hwi2c.build.lfclk_flags=-DUSE_LFXO -DHEARTRATE_HWI2C
+
 # -----------------------------------------------------------------------------
 Waveshare_BLE400_HRM.name=Waveshare BLE400
 

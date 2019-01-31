@@ -1,6 +1,6 @@
 /*
   Copyright (c) 2014-2015 Arduino LLC.  All right reserved.
-  Copyright (c) 2018 Mark Cooke All right reserved.
+  Copyright (c) 2019 Mark Cooke All right reserved.
 
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Lesser General Public
@@ -19,37 +19,38 @@
 
 #include "variant.h"
 
+// https://github.com/fanoush/ds-d6/wiki/Hardware
 const uint32_t g_ADigitalPinMap[] = {
   0,
   1,
-  2,
-  3, // RH 6051C = OC (touch)
-  4,
-  5,
-  6,
-  7,
-  8,
-  9,  // Mosfet - drives Si1143 / HRM (PULL HIGH = OFF)
-  10, // Mosfet - drives vibrate motor (PULL HIGH = OFF)
-  11, // ublox G7020-KT RX
+  2, // charge detect: vmul-5/analogRead(D2)
+  3, // battery voltage: vmul*analogRead(D3)
+  4, // OLED RST - 128x32 SSD1306
+  5, // OLED MOSI - 128x32 SSD1306
+  6, // OLED SCK - 128x32 SSD1306
+  7, // HR sensor SCL - PAH8001
+  8, // HR sensor SDA - PAH8001
+  9, 
+  10,
+  11,
   12,
-  13, // Kx023 - SDA
-  14,
-  15,
-  16, // Kx023 - SCL
+  13, // Accel SCL - Kx023
+  14, // Accel SDA - Kx023
+  15, // Accel INT1 - Kx023
+  16, 
   17,
   18,
-  19, // G24A24 / GT22L - MISO
-  20, // Button 1
-  21, // G24A24 / GT22L - CS
-  22, // G24A24 / GT22L - CLK
-  23, // G24A24 / GT22L - MOSI
-  24, // Button 2 ?
-  25,
-  26,
+  19,
+  20,
+  21,
+  22, // UART RX
+  23, // UART TX
+  24,
+  25, // Vibration Motor
+  26, // HR sensor ENABLE - PAH8001
   27,
-  28,
-  29,
-  30,
+  28, // OLED DC - 128x32 SSD1306
+  29, // OLED CS - 128x32 SSD1306
+  30, // Button1 / Touch Button (Pull Up)
   31
 };

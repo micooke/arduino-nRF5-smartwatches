@@ -1,6 +1,6 @@
 /*
   Copyright (c) 2014-2015 Arduino LLC.  All right reserved.
-  Copyright (c) 2018 Mark Cooke All right reserved.
+  Copyright (c) 2019 Mark Cooke All right reserved.
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Lesser General Public
   License as published by the Free Software Foundation; either
@@ -14,8 +14,8 @@
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#ifndef _VARIANT_T28_
-#define _VARIANT_T28_
+#ifndef _VARIANT_DS_D6_
+#define _VARIANT_DS_D6_
 
 /** Master clock frequency */
 #ifdef NRF52
@@ -42,15 +42,11 @@ extern "C"
 #define NUM_ANALOG_OUTPUTS   0u
 
 // Buttons
-#define PIN_BUTTON1          20u // TOP
-#define PIN_BUTTON2          24u // BOTTOM
-#define PIN_TOUCH            2u  // RH6015-C, input OC
+#define PIN_BUTTON1          30u
+#define PIN_TOUCH            PIN_BUTTON1
 
-#define PIN_VIBRATE          10u
-#define PIN_HR_ON             9u
-
-#define PIN_OLED_VPP          1u
-#define PIN_OLED_SW           3u
+#define PIN_VIBRATE          25u
+#define PIN_HR_ON            26u
 
 #define LED_BUILTIN PIN_VIBRATE
 
@@ -83,46 +79,30 @@ static const uint8_t A5  = PIN_A5;
  */
 // Serial
 
-#define PIN_SERIAL_RX       25u
-#define PIN_SERIAL_TX       26u
-
-// To vacant pads near HR ribbon
-// +------------------ribbon-------------
-// | [  Top ] - To K42 Mosfet P0.09
-// | [      ] - P0.04
-// | [      ] - VSS
-// +-------------------------------------
-//   [      ] - P0.02
-//   [      ] - P0.26 // debug Tx
-//   [Bottom] - P0.25 // debug Rx
-//
-#define PIN_SERIAL1_RX       31u // UBLOX Tx (9600 BAUD)
-#define PIN_SERIAL1_TX       11u // UBLOX Rx
+#define PIN_SERIAL_RX       22u
+#define PIN_SERIAL_TX       23u
 
 /*
  * SPI Interfaces
  */
 
-#define SPI_INTERFACES_COUNT 2
+#define SPI_INTERFACES_COUNT 1
 
-#define PIN_SPI_MISO         5u // -1// OLED - 4 wire SPI
-#define PIN_SPI_MOSI         18u
-#define PIN_SPI_SCK          17u
-//#define PIN_SPI_CS           28u
+#define PIN_SPI_MISO         31u // pin 31 unallocated
+#define PIN_SPI_MOSI         5u // 128x32 SSD1306 OLED
+#define PIN_SPI_SCK          6u
+#define PIN_SPI_RST          4u
+#define PIN_SPI_DC           28u
+#define PIN_SPI_CS           29u
 
-#define PIN_SPI1_MISO        19u // GT22
-#define PIN_SPI1_MOSI        23u
-#define PIN_SPI1_SCK         22u
-#define PIN_SPI1_CS          21u
-
-static const uint8_t SS   = 28u;
+static const uint8_t SS   = PIN_SPI_CS;
 static const uint8_t MOSI = PIN_SPI_MOSI;
 static const uint8_t MISO = PIN_SPI_MISO;
 static const uint8_t SCK  = PIN_SPI_SCK;
 
-#define OLED_RST  14u
-#define OLED_CS   28u
-#define OLED_DC   30u
+#define OLED_RST  PIN_SPI_RST
+#define OLED_CS   PIN_SPI_CS
+#define OLED_DC   PIN_SPI_DC
 
 /*
  * Wire Interfaces
@@ -130,15 +110,17 @@ static const uint8_t SCK  = PIN_SPI_SCK;
 #define WIRE_INTERFACES_COUNT 1
 
 #ifdef ACCEL_HWI2C
-#define PIN_WIRE_SDA         13u  // Kx023 - Accelerometer Sensor
-#define PIN_WIRE_SCL         16u
-#define PIN_WIRE1_SDA       22u   // Si1143 - HeartRate Sensor
-#define PIN_WIRE1_SCL       23u
+#define PIN_WIRE_SDA        13u // Kx023 (Address 0x1f)- Accelerometer Sensor
+#define PIN_WIRE_SCL        14u
+#define PIN_WIRE_INT1       15u
+#define PIN_WIRE1_SDA       7u // PAH8001 (Address 0x6b) - HeartRate Sensor
+#define PIN_WIRE1_SCL       8u
 #else
-#define PIN_WIRE_SDA        22u   // Si1143 - HeartRate Sensor
-#define PIN_WIRE_SCL        23u
-#define PIN_WIRE1_SDA         13u // Kx023 - Accelerometer Sensor
-#define PIN_WIRE1_SCL         16u
+#define PIN_WIRE_SDA        7u // PAH8001 (Address 0x6b) - HeartRate Sensor
+#define PIN_WIRE_SCL        8u
+#define PIN_WIRE1_SDA       13u // Kx023 (Address 0x1f) - Accelerometer Sensor
+#define PIN_WIRE1_SCL       14u
+#define PIN_WIRE1_INT1      15u
 #endif
 
 #ifdef __cplusplus

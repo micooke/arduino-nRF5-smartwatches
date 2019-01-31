@@ -14,6 +14,7 @@ Included smartwatches:
 3. [ID107HR](https://github.com/micooke/micooke.github.io/blob/master/arduino-nRF5-smartwatches/images/ID107HR_back.jpg)
 4. [ID107HR Plus](https://github.com/micooke/micooke.github.io/blob/master/arduino-nRF5-smartwatches/images/ID107HRPlus_disected.jpg) (alpha) - dont expect this to work
 5. [LEMDOIE T28](https://github.com/micooke/micooke.github.io/blob/master/nRF52832_Lemdoie_T28.md)
+6. [MyPow DS-D6](https://github.com/fanoush/ds-d6)
 
 Included Generic development boards:
 6. [Taida Century nRF52 mini board / nRF52832 Gold Core](https://github.com/micooke/micooke.github.io/blob/master/nRF52832_TaidaCentury_GoldCore.md)
@@ -72,6 +73,7 @@ Progamming is via a SWD programmer (J-Link, ST-Link etc.) using sandeep's core.
 ### Pin allocation
 
 The nRF52 based T28 is quite different. Its pin allocation table is located [here](https://github.com/micooke/micooke.github.io/blob/master/nRF52832_Lemdoie_T28.md)
+@fanoush has done a great job on getting the DS-D6 pin allocation. It is hosted [here](https://github.com/fanoush/ds-d6)
 
 
 | peripheral type         | name   | pin          | IDO003 | ID100HR | ID107HR | ID107HR Plus
@@ -121,3 +123,4 @@ The nRF52 based T28 is quite different. Its pin allocation table is located [her
 * ID107HR picture is my own
 * [ID107HR Plus picture](http://www.rogerclark.net/wp-content/uploads/2017/06/id107plus-7-770x1024.jpg) is from Curt, embedded on Roger's website [article](http://www.rogerclark.net/new-nrf52832-based-smart-watch-available/)
 * (Modified) [ID107HR Plus pads](http://www.rogerclark.net/wp-content/uploads/2017/06/id107plus-3.jpg) is from Curt, embedded on Roger's website [article](http://www.rogerclark.net/new-nrf52832-based-smart-watch-available/)
+* [DS-D6](https://github.com/fanoush/ds-d6) from [@fanoush](https://github.com/fanoush)
