@@ -17,7 +17,7 @@ cd libraries/sparkfun_OLED && git pull origin master && cd $fullpath
 cd libraries/HP203B && git pull origin master && cd $fullpath
 cd libraries/Si1143 && git pull origin master && cd $fullpath
 cd libraries/SoftwareSerial && git pull origin master && cd $fullpath
-return
+
 read -p "Release number (e.g. 0.2.1):" version
 
 # copy the folder
