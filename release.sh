@@ -1,6 +1,23 @@
 #!/bin/sh
-#path=`pwd`
+
+# get the latest and greatest
+echo updating the local repository
+git clone https://github.com/micooke/arduino-nRF5-smartwatches.git
+cd arduino-nRF5-smartwatches
+
+# save the path
+fullpath=$(pwd)
 path=${PWD##*/}
+
+# update submodules
+git submodule update --init --recursive
+cd libraries/Kx022-1020 && git pull origin master && cd $fullpath
+cd libraries/SoftwareI2C && git pull origin master && cd $fullpath
+cd libraries/sparkfun_OLED && git pull origin master && cd $fullpath
+cd libraries/HP203B && git pull origin master && cd $fullpath
+cd libraries/Si1143 && git pull origin master && cd $fullpath
+cd libraries/SoftwareSerial && git pull origin master && cd $fullpath
+return
 read -p "Release number (e.g. 0.2.1):" version
 
 # copy the folder
