@@ -22,7 +22,7 @@ read -p "Release number (e.g. 0.2.1):" version
 
 # copy the folder
 cd ..
-cp -r $path $path-$version
+mv $path $path-$version
 cd $path-$version
 
 # remove all .git folders
