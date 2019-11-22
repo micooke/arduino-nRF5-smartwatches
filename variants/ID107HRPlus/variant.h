@@ -45,7 +45,7 @@ extern "C"
 #define PIN_BUTTON1          0u // UNKNOWN
 #define PIN_BUTTON2          0u // UNKNOWN
 
-#define PIN_VIBRATE          0u // UNKNOWN
+#define PIN_VIBRATE          25u // UNKNOWN
 #define LED_BUILTIN PIN_VIBRATE
 
 /*
